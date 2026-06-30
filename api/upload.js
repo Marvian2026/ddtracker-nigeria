@@ -38,7 +38,7 @@ export default async function handler(req, res) {
 
     try {
       await resend.emails.send({
-        from: 'Marvian DD Tracker <onboarding@resend.dev>',
+        from: 'Marvian DD Tracker <noreply@themarvian.com>',
         to: RECIPIENTS,
         replyTo: email,
         subject: `[DD Submission] ${name} — ${fileList.length} document${fileList.length !== 1 ? 's' : ''}`,
