@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document Submission — Marvian International</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Georgia',serif;background:linear-gradient(135deg,#1a2744 0%,#2a3f6a 50%,#1a2744 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem}
+  .card{background:white;border-radius:12px;width:100%;max-width:620px;box-shadow:0 24px 60px rgba(0,0,0,0.35);overflow:hidden}
+  .logo-row{background:#1a2744;padding:1.25rem 2rem;border-bottom:3px solid #c8a84b;display:flex;align-items:baseline;gap:8px}
+  .logo-text{color:white;font-size:20px;font-weight:700;letter-spacing:4px}
+  .logo-sub{color:#c8a84b;font-size:11px;letter-spacing:3px}
+  .header-strip{background:#fdf8ef;border-bottom:1px solid #f0dca0;padding:1rem 2rem}
+  .header-strip h1{color:#1a2744;font-size:16px;font-weight:600;margin-bottom:4px}
+  .header-strip p{color:#6b7896;font-size:12px;line-height:1.6}
+  .header-strip .gold{color:#c8a84b;font-size:11px}
+  form{padding:1.5rem 2rem 2rem}
+  .row{display:flex;gap:12px;margin-bottom:1.25rem}
+  .field{flex:1}
+  label{display:block;font-size:11px;color:#6b7896;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
+  input[type=text],input[type=email],textarea{width:100%;padding:9px 12px;font-size:13px;border:1.5px solid #dde3ee;border-radius:6px;font-family:'Georgia',serif;color:#1a2744;outline:none;transition:border-color 0.2s}
+  input[type=text]:focus,input[type=email]:focus,textarea:focus{border-color:#3d5a8a}
+  textarea{height:80px;resize:vertical}
+  .dropzone{border:2px dashed #dde3ee;border-radius:8px;padding:2rem;text-align:center;cursor:pointer;transition:all 0.2s;background:#fafbfe;margin-bottom:4px}
+  .dropzone:hover,.dropzone.drag{border-color:#c8a84b;background:#fdf8ef}
+  .dropzone .icon{font-size:32px;margin-bottom:8px}
+  .dropzone .primary{font-size:13px;color:#1a2744;font-weight:600;margin-bottom:4px}
+  .dropzone .secondary{font-size:12px;color:#6b7896}
+  .dropzone .secondary span{color:#c8a84b;text-decoration:underline}
+  .dropzone .hint{font-size:10px;color:#aaa;margin-top:8px}
+  #file-input{display:none}
+  .file-list{margin-top:12px}
+  .file-row{display:flex;align-items:center;padding:8px 10px;background:#f4f6fc;border-radius:6px;margin-bottom:6px;border:1px solid #dde3ee}
+  .file-icon{font-size:16px;margin-right:8px;flex-shrink:0}
+  .file-info{flex:1;min-width:0}
+  .file-name{font-size:12px;color:#1a2744;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .file-size{font-size:10px;color:#6b7896}
+  .file-remove{background:none;border:none;cursor:pointer;color:#b02020;font-size:12px;padding:2px 6px;border-radius:4px;font-family:'Georgia',serif;flex-shrink:0}
+  .file-summary{font-size:11px;color:#6b7896;margin-top:6px;text-align:right}
+  .error-box{background:#fdecea;border:1px solid #f0b4b4;color:#b02020;padding:10px 14px;border-radius:6px;font-size:12px;margin-top:12px;margin-bottom:12px}
+  .btn-primary{width:100%;padding:13px;background:#1a2744;color:white;border:none;border-radius:8px;font-size:14px;font-family:'Georgia',serif;cursor:pointer;margin-top:1.25rem;letter-spacing:0.5px;transition:opacity 0.2s}
+  .btn-primary:disabled{opacity:0.7;cursor:not-allowed}
+  .disclaimer{font-size:11px;color:#aaa;text-align:center;margin-top:12px}
+  .footer{text-align:center;padding:1.5rem;font-size:11px;color:rgba(255,255,255,0.4)}
+  .success{text-align:center;padding:2.5rem 2rem}
+  .success .big-icon{font-size:52px;margin-bottom:1rem}
+  .success h2{color:#1a2744;font-size:20px;margin-bottom:0.5rem}
+  .success p{color:#6b7896;font-size:14px;line-height:1.7;max-width:340px;margin:0 auto}
+  .btn-secondary{display:block;margin:1.5rem auto 0;padding:10px 24px;background:transparent;color:#1a2744;border:1.5px solid #dde3ee;border-radius:6px;font-size:13px;font-family:'Georgia',serif;cursor:pointer}
+  @media(max-width:480px){.row{flex-direction:column;gap:0}.row .field{margin-bottom:1.25rem}form{padding:1.25rem 1.25rem 1.5rem}.logo-row{padding:1rem 1.25rem}.header-strip{padding:0.75rem 1.25rem}}
+</style>
+</head>
+<body>
+
+<div class="card" id="card">
+  <div class="logo-row">
+    <span class="logo-text">MARVIAN</span>
+    <span class="logo-sub">INTERNATIONAL</span>
+  </div>
+
+  <!-- Form view -->
+  <div id="form-view">
+    <div class="header-strip">
+      <h1>Due Diligence — Document Submission</h1>
+      <p>Trojan Mining Limited · Sunrise Gold Project, Nigeria<br>
+        <span class="gold">All submissions are confidential and encrypted in transit.</span>
+      </p>
+    </div>
+
+    <form id="upload-form">
+      <div class="row">
+        <div class="field">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" placeholder="Full name" required>
+        </div>
+        <div class="field">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" placeholder="you@example.com" required>
+        </div>
+      </div>
+
+      <div style="margin-bottom:1.25rem">
+        <label for="message">Message / Notes (optional)</label>
+        <textarea id="message" placeholder="e.g. Section 2 — Mining Licences, JORC report attached"></textarea>
+      </div>
+
+      <label>Attach Documents *</label>
+      <div class="dropzone" id="dropzone">
+        <input type="file" id="file-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.zip,.rar">
+        <div class="icon">📁</div>
+        <div class="primary">Drag & drop files here</div>
+        <div class="secondary">or <span>browse to upload</span></div>
+        <div class="hint">PDF, Word, Excel, PowerPoint, images, ZIP · Max 38 MB total</div>
+      </div>
+
+      <div class="file-list" id="file-list"></div>
+      <div id="error-box" class="error-box" style="display:none"></div>
+
+      <button type="submit" class="btn-primary" id="submit-btn">📨&nbsp; Submit Documents to Marvian</button>
+      <p class="disclaimer">Files are delivered directly to the Marvian deal team. Do not share login credentials or passwords via this form.</p>
+    </form>
+  </div>
+
+  <!-- Success view -->
+  <div id="success-view" style="display:none">
+    <div class="success">
+      <div class="big-icon">✅</div>
+      <h2>Documents Submitted</h2>
+      <p>Your files have been securely delivered to the Marvian team. You will be contacted if anything further is required.</p>
+      <button class="btn-secondary" onclick="resetForm()">Submit more documents</button>
+    </div>
+  </div>
+</div>
+
+<div class="footer">© <span id="year"></span> Marvian International Consulting · Confidential</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  let selectedFiles = [];
+
+  const dropzone = document.getElementById('dropzone');
+  const fileInput = document.getElementById('file-input');
+  const fileListEl = document.getElementById('file-list');
+  const errorBox = document.getElementById('error-box');
+  const submitBtn = document.getElementById('submit-btn');
+
+  dropzone.addEventListener('click', () => fileInput.click());
+  fileInput.addEventListener('change', () => addFiles(fileInput.files));
+
+  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag'); });
+  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('drag');
+    addFiles(e.dataTransfer.files);
+  });
+
+  function addFiles(newFiles) {
+    const arr = Array.from(newFiles);
+    const existing = new Set(selectedFiles.map(f => f.name + f.size));
+    arr.forEach(f => { if (!existing.has(f.name + f.size)) selectedFiles.push(f); });
+    renderFileList();
+  }
+
+  function removeFile(index) {
+    selectedFiles.splice(index, 1);
+    renderFileList();
+  }
+
+  function fileIcon(name) {
+    const ext = name.split('.').pop().toLowerCase();
+    if (ext === 'pdf') return '📄';
+    if (['doc','docx'].includes(ext)) return '📝';
+    if (['xls','xlsx','csv'].includes(ext)) return '📊';
+    if (['jpg','jpeg','png','gif'].includes(ext)) return '🖼';
+    if (['zip','rar'].includes(ext)) return '🗜';
+    return '📎';
+  }
+
+  function fmtSize(b) {
+    return b < 1048576 ? `${(b/1024).toFixed(0)} KB` : `${(b/1048576).toFixed(1)} MB`;
+  }
+
+  function renderFileList() {
+    fileListEl.innerHTML = '';
+    if (!selectedFiles.length) return;
+    selectedFiles.forEach((f, i) => {
+      const row = document.createElement('div');
+      row.className = 'file-row';
+      row.innerHTML = `
+        <span class="file-icon">${fileIcon(f.name)}</span>
+        <div class="file-info">
+          <div class="file-name">${f.name}</div>
+          <div class="file-size">${fmtSize(f.size)}</div>
+        </div>
+        <button type="button" class="file-remove" onclick="removeFile(${i})">✕</button>
+      `;
+      fileListEl.appendChild(row);
+    });
+    const total = selectedFiles.reduce((s, f) => s + f.size, 0);
+    const summary = document.createElement('div');
+    summary.className = 'file-summary';
+    summary.textContent = `${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''} · ${fmtSize(total)} total`;
+    fileListEl.appendChild(summary);
+  }
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  }
+
+  function hideError() {
+    errorBox.style.display = 'none';
+  }
+
+  document.getElementById('upload-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    hideError();
+
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const message = document.getElementById('message').value.trim();
+
+    if (!selectedFiles.length) { showError('Please attach at least one file.'); return; }
+    const total = selectedFiles.reduce((s, f) => s + f.size, 0);
+    if (total > 38 * 1024 * 1024) { showError('Total file size exceeds 38 MB. Please reduce files or split into two submissions.'); return; }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '⏳  Sending…';
+
+    try {
+      const fd = new FormData();
+      fd.append('name', name);
+      fd.append('email', email);
+      fd.append('message', message);
+      selectedFiles.forEach(f => fd.append('files', f));
+
+      const res = await fetch('/api/upload', { method: 'POST', body: fd });
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Upload failed');
+
+      document.getElementById('form-view').style.display = 'none';
+      document.getElementById('success-view').style.display = 'block';
+      selectedFiles = [];
+      renderFileList();
+    } catch (err) {
+      showError(err.message);
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = '📨&nbsp; Submit Documents to Marvian';
+    }
+  });
+
+  function resetForm() {
+    document.getElementById('form-view').style.display = 'block';
+    document.getElementById('success-view').style.display = 'none';
+    document.getElementById('upload-form').reset();
+    selectedFiles = [];
+    renderFileList();
+    hideError();
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '📨&nbsp; Submit Documents to Marvian';
+  }
+</script>
+</body>
+</html>
