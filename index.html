@@ -5,50 +5,89 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Document Submission — Marvian International</title>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:'Georgia',serif;background:linear-gradient(135deg,#1a2744 0%,#2a3f6a 50%,#1a2744 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem 1rem}
-  .card{background:white;border-radius:12px;width:100%;max-width:620px;box-shadow:0 24px 60px rgba(0,0,0,0.35);overflow:hidden}
-  .logo-row{background:#1a2744;padding:1.25rem 2rem;border-bottom:3px solid #c8a84b;display:flex;align-items:baseline;gap:8px}
-  .logo-text{color:white;font-size:20px;font-weight:700;letter-spacing:4px}
-  .logo-sub{color:#c8a84b;font-size:11px;letter-spacing:3px}
-  .header-strip{background:#fdf8ef;border-bottom:1px solid #f0dca0;padding:1rem 2rem}
-  .header-strip h1{color:#1a2744;font-size:16px;font-weight:600;margin-bottom:4px}
-  .header-strip p{color:#6b7896;font-size:12px;line-height:1.6}
-  .header-strip .gold{color:#c8a84b;font-size:11px}
-  form{padding:1.5rem 2rem 2rem}
-  .row{display:flex;gap:12px;margin-bottom:1.25rem}
-  .field{flex:1}
-  label{display:block;font-size:11px;color:#6b7896;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
-  input[type=text],input[type=email],textarea{width:100%;padding:9px 12px;font-size:13px;border:1.5px solid #dde3ee;border-radius:6px;font-family:'Georgia',serif;color:#1a2744;outline:none;transition:border-color 0.2s}
-  input[type=text]:focus,input[type=email]:focus,textarea:focus{border-color:#3d5a8a}
-  textarea{height:80px;resize:vertical}
-  .dropzone{border:2px dashed #dde3ee;border-radius:8px;padding:2rem;text-align:center;cursor:pointer;transition:all 0.2s;background:#fafbfe;margin-bottom:4px}
-  .dropzone:hover,.dropzone.drag{border-color:#c8a84b;background:#fdf8ef}
-  .dropzone .icon{font-size:32px;margin-bottom:8px}
-  .dropzone .primary{font-size:13px;color:#1a2744;font-weight:600;margin-bottom:4px}
-  .dropzone .secondary{font-size:12px;color:#6b7896}
-  .dropzone .secondary span{color:#c8a84b;text-decoration:underline}
-  .dropzone .hint{font-size:10px;color:#aaa;margin-top:8px}
-  #file-input{display:none}
-  .file-list{margin-top:12px}
-  .file-row{display:flex;align-items:center;padding:8px 10px;background:#f4f6fc;border-radius:6px;margin-bottom:6px;border:1px solid #dde3ee}
-  .file-icon{font-size:16px;margin-right:8px;flex-shrink:0}
-  .file-info{flex:1;min-width:0}
-  .file-name{font-size:12px;color:#1a2744;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .file-size{font-size:10px;color:#6b7896}
-  .file-remove{background:none;border:none;cursor:pointer;color:#b02020;font-size:12px;padding:2px 6px;border-radius:4px;font-family:'Georgia',serif;flex-shrink:0}
-  .file-summary{font-size:11px;color:#6b7896;margin-top:6px;text-align:right}
-  .error-box{background:#fdecea;border:1px solid #f0b4b4;color:#b02020;padding:10px 14px;border-radius:6px;font-size:12px;margin-top:12px;margin-bottom:12px}
-  .btn-primary{width:100%;padding:13px;background:#1a2744;color:white;border:none;border-radius:8px;font-size:14px;font-family:'Georgia',serif;cursor:pointer;margin-top:1.25rem;letter-spacing:0.5px;transition:opacity 0.2s}
-  .btn-primary:disabled{opacity:0.7;cursor:not-allowed}
-  .disclaimer{font-size:11px;color:#aaa;text-align:center;margin-top:12px}
-  .footer{text-align:center;padding:1.5rem;font-size:11px;color:rgba(255,255,255,0.4)}
-  .success{text-align:center;padding:2.5rem 2rem}
-  .success .big-icon{font-size:52px;margin-bottom:1rem}
-  .success h2{color:#1a2744;font-size:20px;margin-bottom:0.5rem}
-  .success p{color:#6b7896;font-size:14px;line-height:1.7;max-width:340px;margin:0 auto}
-  .btn-secondary{display:block;margin:1.5rem auto 0;padding:10px 24px;background:transparent;color:#1a2744;border:1.5px solid #dde3ee;border-radius:6px;font-size:13px;font-family:'Georgia',serif;cursor:pointer}
-  @media(max-width:480px){.row{flex-direction:column;gap:0}.row .field{margin-bottom:1.25rem}form{padding:1.25rem 1.25rem 1.5rem}.logo-row{padding:1rem 1.25rem}.header-strip{padding:0.75rem 1.25rem}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Georgia',serif;background:linear-gradient(135deg,#1a2744 0%,#2a3f6a 50%,#1a2744 100%);min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem}
+.card{background:white;border-radius:12px;width:100%;max-width:780px;box-shadow:0 24px 60px rgba(0,0,0,0.35);overflow:hidden;margin-bottom:1.5rem}
+.logo-row{background:#1a2744;padding:1.25rem 2rem;border-bottom:3px solid #c8a84b;display:flex;align-items:baseline;gap:8px}
+.logo-text{color:white;font-size:20px;font-weight:700;letter-spacing:4px}
+.logo-sub{color:#c8a84b;font-size:11px;letter-spacing:3px}
+.header-strip{background:#fdf8ef;border-bottom:1px solid #f0dca0;padding:1rem 2rem}
+.header-strip h1{color:#1a2744;font-size:16px;font-weight:600;margin-bottom:4px}
+.header-strip p{color:#6b7896;font-size:12px;line-height:1.6}
+.gold{color:#c8a84b}
+.sender-section{padding:1.5rem 2rem 0}
+.row{display:flex;gap:12px;margin-bottom:1.25rem}
+.field{flex:1}
+label.lbl{display:block;font-size:11px;color:#6b7896;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:6px}
+input[type=text],input[type=email],textarea{width:100%;padding:9px 12px;font-size:13px;border:1.5px solid #dde3ee;border-radius:6px;font-family:'Georgia',serif;color:#1a2744;outline:none;transition:border-color 0.2s}
+input:focus,textarea:focus{border-color:#3d5a8a}
+textarea{height:72px;resize:vertical}
+
+/* Progress */
+.progress-bar-wrap{padding:0.75rem 2rem;border-bottom:1px solid #eef0f6;background:#fafbfe;display:flex;align-items:center;gap:12px}
+.progress-label{font-size:12px;color:#6b7896;white-space:nowrap}
+.progress-track{flex:1;height:6px;background:#eee;border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#c8a84b;border-radius:3px;transition:width 0.3s}
+.progress-count{font-size:12px;color:#1a2744;font-weight:600;white-space:nowrap}
+
+/* Sections */
+.sections-wrap{padding:0 0 1rem}
+.section-header{display:flex;align-items:center;padding:10px 2rem;background:#f4f6fc;border-bottom:1px solid #e8ecf4;border-top:1px solid #e8ecf4;cursor:pointer;user-select:none;gap:10px;margin-top:4px}
+.section-header:hover{background:#edf0f9}
+.section-arrow{font-size:10px;color:#6b7896;transition:transform 0.2s;flex-shrink:0}
+.section-arrow.open{transform:rotate(90deg)}
+.section-title{font-size:12px;font-weight:600;color:#1a2744;flex:1}
+.section-badge{font-size:10px;color:#6b7896;background:#e8ecf4;padding:2px 8px;border-radius:10px;flex-shrink:0}
+.section-checked{font-size:10px;color:#2d7a2d;background:#edf7ed;padding:2px 8px;border-radius:10px;flex-shrink:0;display:none}
+.section-items{display:none;padding:0}
+.section-items.open{display:block}
+
+/* Items */
+.item-row{border-bottom:1px solid #f0f2f8;padding:0}
+.item-top{display:flex;align-items:flex-start;padding:10px 2rem 10px 1.5rem;gap:10px;cursor:pointer}
+.item-top:hover{background:#fafbfe}
+.item-cb{width:16px;height:16px;margin-top:2px;cursor:pointer;accent-color:#1a2744;flex-shrink:0}
+.item-label{flex:1;font-size:12px;color:#1a2744;line-height:1.5}
+.item-ref{font-size:10px;color:#c8a84b;font-style:italic;margin-top:2px}
+.item-priority-high{font-size:9px;color:#b02020}
+.item-priority-med{font-size:9px;color:#a06800}
+.item-attach-count{font-size:10px;color:#2d7a2d;background:#edf7ed;padding:2px 7px;border-radius:10px;flex-shrink:0;white-space:nowrap;display:none}
+
+/* File zone per item */
+.item-files{display:none;padding:8px 2rem 12px 3.5rem;background:#fafbfe;border-top:1px solid #f0f2f8}
+.item-files.open{display:block}
+.mini-dropzone{border:1.5px dashed #c8a84b;border-radius:6px;padding:10px 14px;text-align:center;cursor:pointer;background:#fdf8ef;font-size:11px;color:#a06800;transition:all 0.2s;margin-bottom:6px}
+.mini-dropzone:hover{background:#f5eddb}
+.mini-file-list{display:flex;flex-direction:column;gap:4px}
+.mini-file-row{display:flex;align-items:center;background:#f0f4ff;border:1px solid #dde3ee;border-radius:5px;padding:5px 8px;gap:7px}
+.mini-file-icon{font-size:13px;flex-shrink:0}
+.mini-file-name{flex:1;font-size:11px;color:#1a2744;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mini-file-size{font-size:10px;color:#6b7896;flex-shrink:0}
+.mini-file-remove{background:none;border:none;cursor:pointer;color:#b02020;font-size:11px;padding:1px 4px;border-radius:3px;font-family:'Georgia',serif;flex-shrink:0}
+
+/* Submit area */
+.submit-area{padding:1.5rem 2rem 2rem;border-top:1px solid #eef0f6}
+.error-box{background:#fdecea;border:1px solid #f0b4b4;color:#b02020;padding:10px 14px;border-radius:6px;font-size:12px;margin-bottom:12px;display:none}
+.btn-primary{width:100%;padding:13px;background:#1a2744;color:white;border:none;border-radius:8px;font-size:14px;font-family:'Georgia',serif;cursor:pointer;letter-spacing:0.5px;transition:opacity 0.2s}
+.btn-primary:disabled{opacity:0.7;cursor:not-allowed}
+.disclaimer{font-size:11px;color:#aaa;text-align:center;margin-top:10px}
+.footer{text-align:center;padding:1rem;font-size:11px;color:rgba(255,255,255,0.4)}
+
+/* Success */
+.success{text-align:center;padding:3rem 2rem}
+.success .big-icon{font-size:52px;margin-bottom:1rem}
+.success h2{color:#1a2744;font-size:20px;margin-bottom:0.5rem}
+.success p{color:#6b7896;font-size:14px;line-height:1.7;max-width:360px;margin:0 auto}
+.btn-secondary{display:block;margin:1.5rem auto 0;padding:10px 24px;background:transparent;color:#1a2744;border:1.5px solid #dde3ee;border-radius:6px;font-size:13px;font-family:'Georgia',serif;cursor:pointer}
+
+@media(max-width:520px){
+  .sender-section,.submit-area{padding:1.25rem 1.25rem 0}
+  .submit-area{padding:1.25rem}
+  .section-header,.item-top{padding-left:1rem;padding-right:1rem}
+  .item-files{padding-left:2.5rem;padding-right:1rem}
+  .logo-row,.header-strip{padding-left:1.25rem;padding-right:1.25rem}
+  .row{flex-direction:column;gap:0}.row .field{margin-bottom:1rem}
+}
 </style>
 </head>
 <body>
@@ -64,42 +103,44 @@
     <div class="header-strip">
       <h1>Due Diligence — Document Submission</h1>
       <p>Trojan Mining Limited · Sunrise Gold Project, Nigeria<br>
-        <span class="gold">All submissions are confidential and encrypted in transit.</span>
+        <span class="gold">Check each item you are providing, attach the relevant files, then submit.</span>
       </p>
     </div>
 
-    <form id="upload-form">
+    <!-- Sender -->
+    <div class="sender-section">
       <div class="row">
         <div class="field">
-          <label for="name">Your Name *</label>
-          <input type="text" id="name" placeholder="Full name" required>
+          <label class="lbl" for="inp-name">Your Name *</label>
+          <input type="text" id="inp-name" placeholder="Full name" required>
         </div>
         <div class="field">
-          <label for="email">Your Email *</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
+          <label class="lbl" for="inp-email">Your Email *</label>
+          <input type="email" id="inp-email" placeholder="you@example.com" required>
         </div>
       </div>
-
       <div style="margin-bottom:1.25rem">
-        <label for="message">Message / Notes (optional)</label>
-        <textarea id="message" placeholder="e.g. Section 2 — Mining Licences, JORC report attached"></textarea>
+        <label class="lbl" for="inp-message">Cover Note (optional)</label>
+        <textarea id="inp-message" placeholder="Any context or notes for the Marvian team…"></textarea>
       </div>
+    </div>
 
-      <label>Attach Documents *</label>
-      <div class="dropzone" id="dropzone">
-        <input type="file" id="file-input" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.zip,.rar">
-        <div class="icon">📁</div>
-        <div class="primary">Drag & drop files here</div>
-        <div class="secondary">or <span>browse to upload</span></div>
-        <div class="hint">PDF, Word, Excel, PowerPoint, images, ZIP · Max 38 MB total</div>
-      </div>
+    <!-- Progress -->
+    <div class="progress-bar-wrap">
+      <span class="progress-label">Items addressed:</span>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <span class="progress-count" id="progress-count">0 / 147</span>
+    </div>
 
-      <div class="file-list" id="file-list"></div>
-      <div id="error-box" class="error-box" style="display:none"></div>
+    <!-- Sections -->
+    <div class="sections-wrap" id="sections-wrap"></div>
 
-      <button type="submit" class="btn-primary" id="submit-btn">📨&nbsp; Submit Documents to Marvian</button>
-      <p class="disclaimer">Files are delivered directly to the Marvian deal team. Do not share login credentials or passwords via this form.</p>
-    </form>
+    <!-- Submit -->
+    <div class="submit-area">
+      <div class="error-box" id="error-box"></div>
+      <button class="btn-primary" id="submit-btn" type="button">📨&nbsp; Submit Documents to Marvian</button>
+      <p class="disclaimer">Files are delivered directly to the Marvian deal team. Do not share passwords or credentials via this form.</p>
+    </div>
   </div>
 
   <!-- Success view -->
@@ -116,132 +157,482 @@
 <div class="footer">© <span id="year"></span> Marvian International Consulting · Confidential</div>
 
 <script>
-  document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  let selectedFiles = [];
+// ─── DD DATA ────────────────────────────────────────────────────────────────
+const SECTIONS = [
+  {title:"1. Corporate & Ownership — Trojan Mining Limited",items:[
+    {id:"1-1",item:"Certificate of incorporation & constitutional documents",priority:"high"},
+    {id:"1-2",item:"Current group/corporate structure chart",priority:"high"},
+    {id:"1-3",item:"Register of shareholders — all issued shares and share classes",priority:"high"},
+    {id:"1-4",item:"Beneficial ownership details — all ultimate beneficial owners (UBOs)",priority:"high"},
+    {id:"1-5",item:"Existing shareholders agreement (SHA) or shareholders' deed",priority:"high"},
+    {id:"1-6",item:"Board minutes & shareholder resolutions (last 3 years)",priority:"med"},
+    {id:"1-7",item:"Director register — current and historical directors",priority:"med"},
+    {id:"1-8",item:"Companies House filing — confirmation statement, accounts, good standing",priority:"high"},
+    {id:"1-9",item:"Director KYC — government-issued ID, background check & AML screening",priority:"high"},
+    {id:"1-10",item:"9% Facilitation Group — identity of recipients and proposed SPV details",priority:"high"},
+  ]},
+  {title:"2. Nigerian Mining Tenements & Title (Sunrise Gold Project)",items:[
+    {id:"2-1",item:"Copies of all mining licences, prospecting licences, mining leases & mineral title documents",priority:"high"},
+    {id:"2-2",item:"Evidence each licence is valid, current & in good standing with MCO",priority:"high"},
+    {id:"2-3",item:"Official mining cadastre map / coordinate plan for each tenement",priority:"high"},
+    {id:"2-4",item:"Details of any lapse, suspension, revocation or breach notice",priority:"high"},
+    {id:"2-5",item:"Royalty obligations — government royalty rates applicable to gold operations",priority:"high"},
+    {id:"2-6",item:"Surface rights & land access agreements — community and landowner consents",priority:"high"},
+    {id:"2-7",item:"Encumbrances — any royalty overrides, NSRs, charges, pledges or liens",priority:"high"},
+    {id:"2-8",item:"Change of control — confirmation tenement transfers permitted on 51% acquisition",priority:"high"},
+    {id:"2-9",item:"Annual rent / fees payment receipts — all tenements, last 3 years",priority:"high"},
+  ]},
+  {title:"3. JORC / NI 43-101 — Resource & Technical Reports",items:[
+    {id:"3-1",item:"All existing JORC 2012 or NI 43-101 technical reports / resource estimates",priority:"high"},
+    {id:"3-2",item:"All appendices, supporting datasets, drill logs, assay results & QA/QC data",priority:"high"},
+    {id:"3-3",item:"Competent/Qualified Person credentials, appointment letter & independence confirmation",priority:"high"},
+    {id:"3-4",item:"All geological reports — regional geology, soil geochemistry, airborne geophysics",priority:"med"},
+    {id:"3-5",item:"Copper / Lead / Silver discovery data — all geological work and assay data",priority:"med"},
+    {id:"3-6",item:"Lithium exploration data — existing surveys, geochemistry, rock chip samples",priority:"med"},
+    {id:"3-7",item:"Alluvial gold assessment — existing data on alluvial potential, channel mapping, bulk sampling",priority:"high"},
+    {id:"3-8",item:"Proposed JORC/NI 43-101 drilling program scope, budget, timeline & contractor selection",priority:"high"},
+  ]},
+  {title:"4. Environmental, Social & Regulatory Permitting",items:[
+    {id:"4-1",item:"Environmental Impact Assessment (EIA) — approved by Federal Ministry of Environment",priority:"high"},
+    {id:"4-2",item:"Environmental Management Plan (EMP) and mine closure plan",priority:"high"},
+    {id:"4-3",item:"State Environmental Protection Agency (SEPA) approvals",priority:"high"},
+    {id:"4-4",item:"Mining Development Agreement (MDA) with Federal Government of Nigeria",priority:"med"},
+    {id:"4-5",item:"Water use permits — abstraction rights for alluvial processing operations",priority:"high"},
+    {id:"4-6",item:"Explosives / blasting permits",priority:"med"},
+    {id:"4-7",item:"Community Development Agreement (CDA) — host community engagement",priority:"high"},
+    {id:"4-8",item:"Security arrangements — site security contracts, JTF or government security MOU",priority:"high"},
+    {id:"4-9",item:"Artisanal & Small-Scale Mining (ASM) — extent of existing ASM activity",priority:"high"},
+    {id:"4-10",item:"Baseline environmental data — water quality, soil contamination, biodiversity",priority:"med"},
+  ]},
+  {title:"5. Financial, Tax & Audit",items:[
+    {id:"5-1",item:"Audited financial statements — last 3 years",priority:"high"},
+    {id:"5-2",item:"Management accounts — most recent period",priority:"high"},
+    {id:"5-3",item:"Bank account statements — all accounts (UK & Nigeria), last 3 years",priority:"high"},
+    {id:"5-4",item:"All debts, liabilities, contingent liabilities, guarantees & off-balance-sheet items",priority:"high"},
+    {id:"5-5",item:"UK tax — corporation tax returns (CT600), HMRC correspondence, tax clearances",priority:"high"},
+    {id:"5-6",item:"Nigerian tax obligations — FIRS compliance — CIT, WHT, VAT",priority:"high"},
+    {id:"5-7",item:"Capital gains / stamp duty analysis — tax treatment of 51% share acquisition",priority:"high"},
+    {id:"5-8",item:"Project budget — detailed capex and opex for alluvial plant, JORC drilling & community gold buying",priority:"high"},
+    {id:"5-9",item:"Financial model — revenue projections, gold price assumptions, cash flow",priority:"high"},
+    {id:"5-10",item:"Existing offtake agreements — any existing gold or commodity sales contracts",priority:"high"},
+    {id:"5-11",item:"Shareholder compensation analysis — USD 8M payment to existing shareholders",priority:"high"},
+  ]},
+  {title:"6. Material Contracts",items:[
+    {id:"6-1",item:"All contractor, drilling, mining, processing & logistics agreements",priority:"high"},
+    {id:"6-2",item:"Community Gold Buying Programme — existing agreements or documentation",priority:"high"},
+    {id:"6-3",item:"Alluvial plant supply — proposed supplier, lead time, specifications & cost",priority:"high"},
+    {id:"6-4",item:"Management & technical services agreements",priority:"med"},
+    {id:"6-5",item:"Agreements with change of control or consent clauses",priority:"high"},
+    {id:"6-6",item:"Loan agreements, related-party transactions & director loan accounts",priority:"high"},
+  ]},
+  {title:"7. Litigation, Disputes & Regulatory",items:[
+    {id:"7-1",item:"All current or threatened litigation, arbitration, regulatory proceedings or disputes",priority:"high"},
+    {id:"7-2",item:"Disputes with landowners, communities, regulators, JV partners or employees",priority:"high"},
+    {id:"7-3",item:"Regulatory compliance history — FCA (UK), FIRS, MCO, Nigerian Mining Act",priority:"high"},
+    {id:"7-4",item:"Companies House — confirmation of no outstanding filing defaults or director disqualifications",priority:"high"},
+    {id:"7-5",item:"Anti-bribery & corruption (ABC) — compliance policy and FCPA/UK Bribery Act exposure",priority:"high"},
+    {id:"7-6",item:"AML/CTF screening — sanctions check against all directors, shareholders, counterparties",priority:"high"},
+  ]},
+  {title:"8. Operations & Site Information",items:[
+    {id:"8-1",item:"Current site plan, project layout, tenure map overlaid on topographic base",priority:"high"},
+    {id:"8-2",item:"Management team — CVs, qualifications, experience & roles of key operational personnel",priority:"high"},
+    {id:"8-3",item:"Site photographs — current condition of site, access roads, existing infrastructure",priority:"med"},
+    {id:"8-4",item:"Infrastructure — roads, power supply, water access, communications, nearest town/port",priority:"high"},
+    {id:"8-5",item:"Production history — any historical gold production, revenues and records",priority:"med"},
+    {id:"8-6",item:"Labour — local workforce, skills base, existing employment contracts",priority:"med"},
+    {id:"8-7",item:"Gold refinery and export chain — proposed route from mine to gold sale / export",priority:"high"},
+  ]},
+  {title:"9. Transaction & Settlement Conditions",items:[
+    {id:"9-1",item:"Share Sale & Purchase Agreement (SPA) — first draft",priority:"high"},
+    {id:"9-2",item:"Shareholders Agreement (SHA) — to be agreed within 60 days of LOI signing",priority:"high"},
+    {id:"9-3",item:"Commitment Fee — USD 500,000 — payment mechanics and bank details",priority:"high"},
+    {id:"9-4",item:"Payment tranche mechanics — escrow, bank details for all 4 tranches",priority:"high"},
+    {id:"9-5",item:"All regulatory & government approvals for share transfer — UK & Nigeria",priority:"high"},
+    {id:"9-6",item:"No material adverse change (MAC) — confirmation between signing and settlement",priority:"high"},
+    {id:"9-7",item:"Confidentiality obligations — compliance with 3-year confidentiality clause",priority:"med"},
+    {id:"9-8",item:"ICC Arbitration — confirm dispute resolution mechanism in all transaction documents",priority:"med"},
+    {id:"9-9",item:"Force majeure — assess Nigeria-specific risks",priority:"med"},
+    {id:"9-10",item:"LOI expiry — offer expires 5:00pm Dubai time, 02/08/2026",priority:"high"},
+  ]},
+  {title:"10. Offtake, Gold Sales & Revenue Structure",items:[
+    {id:"10-1",item:"Proposed offtake structure — Marvian's control over all commodity offtake",priority:"high"},
+    {id:"10-2",item:"Community Gold Buying Programme — detailed plan for first gold sales within 12 weeks",priority:"high"},
+    {id:"10-3",item:"Gold export licence — Nigerian Export Promotion Council (NEPC) and CBN requirements",priority:"high"},
+    {id:"10-4",item:"LBMA pricing mechanism — proposed pricing, assay, settlement and payment terms",priority:"high"},
+  ]},
+  {title:"11. Title Deeds & Land / Surface Rights",items:[
+    {id:"11-1",item:"Freehold or leasehold title deeds — all land parcels owned or occupied",priority:"high"},
+    {id:"11-2",item:"Certificate of Occupancy (C of O) — Nigerian land title documents",priority:"high"},
+    {id:"11-3",item:"Governor's Consent — confirmation of consent to any existing leases or sub-leases",priority:"high"},
+    {id:"11-4",item:"Cadastral survey plans — registered survey plans for all land parcels",priority:"high"},
+    {id:"11-5",item:"Traditional/customary land rights — confirmation of community and traditional ruler recognition",priority:"high"},
+    {id:"11-6",item:"Access road / right of way agreements",priority:"med"},
+    {id:"11-7",item:"Land compensation records — payments made to displaced landowners or farmers",priority:"high"},
+  ]},
+  {title:"12. Taxation — Full Compliance Register",items:[
+    {id:"12-1",item:"Nigerian CAC registration — Trojan's Nigerian entity / branch",priority:"high"},
+    {id:"12-2",item:"FIRS Tax Identification Number (TIN) — Nigerian entity",priority:"high"},
+    {id:"12-3",item:"Companies Income Tax (CIT) returns — last 3 years, Nigerian entity",priority:"high"},
+    {id:"12-4",item:"Value Added Tax (VAT) — registration certificate and VAT returns",priority:"high"},
+    {id:"12-5",item:"Withholding Tax (WHT) — compliance on contractor, dividend, and royalty payments",priority:"high"},
+    {id:"12-6",item:"PAYE / Payroll tax — compliance for all Nigerian employees",priority:"med"},
+    {id:"12-7",item:"Solid Minerals Development Fund (SMDF) levy — payment receipts",priority:"high"},
+    {id:"12-8",item:"Transfer pricing documentation — related-party transactions",priority:"med"},
+    {id:"12-9",item:"State and LGA taxes — outstanding state-level levies, land use charge",priority:"med"},
+    {id:"12-10",item:"Pioneer Status Incentive — application status or eligibility for Nigerian tax holiday",priority:"med"},
+    {id:"12-11",item:"Tax clearance certificates (TCC) — all entities in group, current year",priority:"high"},
+  ]},
+  {title:"13. Government & Regulatory Registrations",items:[
+    {id:"13-1",item:"Nigerian Investment Promotion Commission (NIPC) registration certificate",priority:"high"},
+    {id:"13-2",item:"Nigeria Customs Service — import/export registration",priority:"high"},
+    {id:"13-3",item:"Central Bank of Nigeria (CBN) — forex registration and gold export proceeds repatriation approval",priority:"high"},
+    {id:"13-4",item:"Securities & Exchange Commission Nigeria (SEC) — notification or approval required",priority:"med"},
+    {id:"13-5",item:"Immigration — expatriate quota and work permits for all non-Nigerian staff",priority:"high"},
+    {id:"13-6",item:"Business permits — federal or state business operating permits",priority:"med"},
+    {id:"13-7",item:"Radio communications licence — VHF/HF radio or satellite communications at site",priority:"med"},
+    {id:"13-8",item:"Mines Inspectorate Department (MID) — compliance certificates and inspection reports",priority:"high"},
+  ]},
+  {title:"14. Licences — Full Register",items:[
+    {id:"14-1",item:"Gold dealer / gold buying licence — CBN or MID licence for gold purchasing",priority:"high"},
+    {id:"14-2",item:"Explosives licence — manufacture, possession, storage and use",priority:"med"},
+    {id:"14-3",item:"Mine Manager Certificate of Competency",priority:"high"},
+    {id:"14-4",item:"Environmental permit / consent to operate — issued by FMENV or SEPA",priority:"high"},
+    {id:"14-5",item:"Water abstraction licence / permit",priority:"high"},
+    {id:"14-6",item:"Effluent discharge permit",priority:"med"},
+    {id:"14-7",item:"Import duty exemption certificates — for mining equipment imports",priority:"med"},
+    {id:"14-8",item:"Health & Safety licences — applicable MID safety approvals",priority:"high"},
+    {id:"14-9",item:"Fuel storage permit — licence for diesel/fuel storage at mine site",priority:"med"},
+  ]},
+  {title:"15. Fines, Penalties & Enforcement History",items:[
+    {id:"15-1",item:"MCO enforcement actions — stop-work orders, penalty notices, licence suspension notices",priority:"high"},
+    {id:"15-2",item:"FMENV / SEPA enforcement — environmental penalty notices, remediation orders",priority:"high"},
+    {id:"15-3",item:"FIRS — tax assessments, penalties, interest, or outstanding disputes",priority:"high"},
+    {id:"15-4",item:"MID inspection fines or improvement notices",priority:"high"},
+    {id:"15-5",item:"Community or landowner claims — fines, judgements, or agreed penalties",priority:"high"},
+    {id:"15-6",item:"Company fines register — internal register of all fines and penalties paid",priority:"high"},
+    {id:"15-7",item:"UK Companies House — county court judgements (CCJs) or charges registered",priority:"high"},
+  ]},
+  {title:"16. All Reports — Technical, H&S, Environmental & Compliance",items:[
+    {id:"16-1",item:"Independent Technical Review (ITR) — previous independent assessment of the project",priority:"high"},
+    {id:"16-2",item:"JORC 2012 Table 1 Checklist — confirmation of compliance",priority:"high"},
+    {id:"16-3",item:"NI 43-101 Technical Report — all 27 required sections",priority:"high"},
+    {id:"16-4",item:"Health & Safety incident register — all reportable incidents, LTIs, fatalities",priority:"high"},
+    {id:"16-5",item:"Environmental monitoring reports — water quality, air quality, noise, dust",priority:"med"},
+    {id:"16-6",item:"Mine rehabilitation / closure cost estimate",priority:"med"},
+    {id:"16-7",item:"Acid Rock Drainage (ARD) / Acid Mine Drainage study",priority:"med"},
+    {id:"16-8",item:"Social Impact Assessment (SIA)",priority:"med"},
+    {id:"16-9",item:"Cultural Heritage & Sacred Sites survey",priority:"med"},
+    {id:"16-10",item:"Waste management plan — tailings, chemical waste, hazardous materials",priority:"high"},
+  ]},
+  {title:"17. Insurance",items:[
+    {id:"17-1",item:"Current insurance schedule — all policies held by Trojan",priority:"high"},
+    {id:"17-2",item:"Public/third-party liability insurance — coverage for operations in Nigeria",priority:"high"},
+    {id:"17-3",item:"Directors & Officers (D&O) insurance",priority:"high"},
+    {id:"17-4",item:"Mining property / equipment all-risk insurance",priority:"high"},
+    {id:"17-5",item:"Employers liability / workers compensation",priority:"high"},
+    {id:"17-6",item:"Political risk & expropriation insurance — coverage for Nigerian sovereign risk",priority:"med"},
+    {id:"17-7",item:"Cargo / transit insurance — for gold shipments from Nigeria to refinery",priority:"high"},
+  ]},
+  {title:"18. Board Governance — Resolutions & Authorisations",items:[
+    {id:"18-1",item:"Board resolution authorising the LOI and the 51% share sale — Trojan Board",priority:"high"},
+    {id:"18-2",item:"Shareholder resolution — approval of 51% sale",priority:"high"},
+    {id:"18-3",item:"Board authorisation for transaction documents — SPA, SHA, offtake agreements",priority:"high"},
+    {id:"18-4",item:"Board minutes — record of quorum, attendance, voting (last 3 years)",priority:"med"},
+    {id:"18-5",item:"Conflicts of interest register",priority:"med"},
+    {id:"18-6",item:"Signing authority matrix — who is authorised to sign on behalf of Trojan",priority:"high"},
+  ]},
+];
 
-  const dropzone = document.getElementById('dropzone');
-  const fileInput = document.getElementById('file-input');
-  const fileListEl = document.getElementById('file-list');
+const TOTAL_ITEMS = SECTIONS.reduce((s,sec) => s + sec.items.length, 0);
+
+// State: itemId -> File[]
+const itemFiles = {};
+
+function fileIcon(name) {
+  const ext = (name.split('.').pop()||'').toLowerCase();
+  if (ext==='pdf') return '📄';
+  if (['doc','docx'].includes(ext)) return '📝';
+  if (['xls','xlsx','csv'].includes(ext)) return '📊';
+  if (['jpg','jpeg','png','gif'].includes(ext)) return '🖼';
+  if (['zip','rar'].includes(ext)) return '🗜';
+  return '📎';
+}
+
+function fmtSize(b) {
+  return b < 1048576 ? `${(b/1024).toFixed(0)} KB` : `${(b/1048576).toFixed(1)} MB`;
+}
+
+function updateProgress() {
+  const checked = Object.keys(itemFiles).filter(id => {
+    const cb = document.getElementById('cb-'+id);
+    return cb && cb.checked;
+  }).length;
+  const pct = TOTAL_ITEMS ? Math.round(checked/TOTAL_ITEMS*100) : 0;
+  document.getElementById('progress-fill').style.width = pct+'%';
+  document.getElementById('progress-count').textContent = checked+' / '+TOTAL_ITEMS;
+
+  // Update section badges
+  SECTIONS.forEach((sec, si) => {
+    const checkedInSec = sec.items.filter(it => {
+      const cb = document.getElementById('cb-'+it.id);
+      return cb && cb.checked;
+    }).length;
+    const badge = document.getElementById('sec-checked-'+si);
+    if (badge) {
+      if (checkedInSec > 0) {
+        badge.style.display = 'inline';
+        badge.textContent = checkedInSec+' / '+sec.items.length+' addressed';
+      } else {
+        badge.style.display = 'none';
+      }
+    }
+  });
+}
+
+function renderItemFiles(itemId) {
+  const container = document.getElementById('files-'+itemId);
+  const files = itemFiles[itemId] || [];
+  const countBadge = document.getElementById('count-'+itemId);
+
+  // Update file count badge
+  if (files.length > 0) {
+    countBadge.style.display = 'inline';
+    countBadge.textContent = files.length+' file'+(files.length!==1?'s':'')+' attached';
+  } else {
+    countBadge.style.display = 'none';
+  }
+
+  const list = container.querySelector('.mini-file-list');
+  list.innerHTML = '';
+  files.forEach((f, i) => {
+    const row = document.createElement('div');
+    row.className = 'mini-file-row';
+    row.innerHTML = `
+      <span class="mini-file-icon">${fileIcon(f.name)}</span>
+      <span class="mini-file-name">${f.name}</span>
+      <span class="mini-file-size">${fmtSize(f.size)}</span>
+      <button type="button" class="mini-file-remove" onclick="removeItemFile('${itemId}',${i})">✕</button>
+    `;
+    list.appendChild(row);
+  });
+}
+
+function removeItemFile(itemId, index) {
+  if (itemFiles[itemId]) {
+    itemFiles[itemId].splice(index, 1);
+    if (itemFiles[itemId].length === 0) delete itemFiles[itemId];
+  }
+  renderItemFiles(itemId);
+}
+
+function addItemFiles(itemId, newFiles) {
+  if (!itemFiles[itemId]) itemFiles[itemId] = [];
+  const existing = new Set(itemFiles[itemId].map(f => f.name+f.size));
+  Array.from(newFiles).forEach(f => {
+    if (!existing.has(f.name+f.size)) itemFiles[itemId].push(f);
+  });
+  renderItemFiles(itemId);
+}
+
+function buildUI() {
+  const wrap = document.getElementById('sections-wrap');
+  SECTIONS.forEach((sec, si) => {
+    const secDiv = document.createElement('div');
+
+    // Section header
+    const hdr = document.createElement('div');
+    hdr.className = 'section-header';
+    hdr.innerHTML = `
+      <span class="section-arrow" id="arrow-${si}">▶</span>
+      <span class="section-title">${sec.title}</span>
+      <span class="section-checked" id="sec-checked-${si}"></span>
+      <span class="section-badge">${sec.items.length} items</span>
+    `;
+    hdr.addEventListener('click', () => toggleSection(si));
+    secDiv.appendChild(hdr);
+
+    // Items container
+    const itemsDiv = document.createElement('div');
+    itemsDiv.className = 'section-items';
+    itemsDiv.id = 'sec-items-'+si;
+
+    sec.items.forEach(it => {
+      const itemDiv = document.createElement('div');
+      itemDiv.className = 'item-row';
+
+      // Item top row
+      const top = document.createElement('div');
+      top.className = 'item-top';
+      top.innerHTML = `
+        <input type="checkbox" class="item-cb" id="cb-${it.id}" onchange="onCheckChange('${it.id}')">
+        <div class="item-label">
+          <div>${it.item}</div>
+          ${it.priority==='high'?'<div class="item-priority-high">🔴 High Priority</div>':it.priority==='med'?'<div class="item-priority-med">🟡 Medium Priority</div>':''}
+        </div>
+        <span class="item-attach-count" id="count-${it.id}"></span>
+      `;
+      // Click label area to toggle checkbox
+      top.addEventListener('click', (e) => {
+        if (e.target.classList.contains('item-cb')) return;
+        const cb = document.getElementById('cb-'+it.id);
+        cb.checked = !cb.checked;
+        onCheckChange(it.id);
+      });
+      itemDiv.appendChild(top);
+
+      // File zone
+      const fileZone = document.createElement('div');
+      fileZone.className = 'item-files';
+      fileZone.id = 'files-'+it.id;
+      fileZone.innerHTML = `
+        <div class="mini-dropzone" id="dz-${it.id}">📎 Click or drag files here for this item</div>
+        <input type="file" multiple style="display:none" id="fi-${it.id}"
+          accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.ppt,.pptx,.txt,.jpg,.jpeg,.png,.gif,.zip,.rar"
+          onchange="addItemFiles('${it.id}', this.files); this.value=''">
+        <div class="mini-file-list"></div>
+      `;
+      itemDiv.appendChild(fileZone);
+
+      itemsDiv.appendChild(itemDiv);
+    });
+
+    secDiv.appendChild(itemsDiv);
+    wrap.appendChild(secDiv);
+
+    // Wire up dropzone events after DOM insertion
+    sec.items.forEach(it => {
+      const dz = document.getElementById('dz-'+it.id);
+      const fi = document.getElementById('fi-'+it.id);
+      dz.addEventListener('click', () => fi.click());
+      dz.addEventListener('dragover', e => { e.preventDefault(); dz.style.background='#f5eddb'; });
+      dz.addEventListener('dragleave', () => { dz.style.background=''; });
+      dz.addEventListener('drop', e => {
+        e.preventDefault();
+        dz.style.background='';
+        addItemFiles(it.id, e.dataTransfer.files);
+      });
+    });
+  });
+}
+
+function toggleSection(si) {
+  const items = document.getElementById('sec-items-'+si);
+  const arrow = document.getElementById('arrow-'+si);
+  const isOpen = items.classList.contains('open');
+  items.classList.toggle('open', !isOpen);
+  arrow.classList.toggle('open', !isOpen);
+}
+
+function onCheckChange(itemId) {
+  const cb = document.getElementById('cb-'+itemId);
+  const fileZone = document.getElementById('files-'+itemId);
+  if (cb.checked) {
+    fileZone.classList.add('open');
+  } else {
+    fileZone.classList.remove('open');
+    delete itemFiles[itemId];
+    renderItemFiles(itemId);
+  }
+  updateProgress();
+}
+
+document.getElementById('submit-btn').addEventListener('click', async () => {
+  const name = document.getElementById('inp-name').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const message = document.getElementById('inp-message').value.trim();
   const errorBox = document.getElementById('error-box');
   const submitBtn = document.getElementById('submit-btn');
 
-  dropzone.addEventListener('click', () => fileInput.click());
-  fileInput.addEventListener('change', () => addFiles(fileInput.files));
+  errorBox.style.display = 'none';
 
-  dropzone.addEventListener('dragover', e => { e.preventDefault(); dropzone.classList.add('drag'); });
-  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag'));
-  dropzone.addEventListener('drop', e => {
-    e.preventDefault();
-    dropzone.classList.remove('drag');
-    addFiles(e.dataTransfer.files);
+  if (!name || !email) { showError('Please enter your name and email.'); return; }
+
+  const checkedItems = SECTIONS.flatMap(sec =>
+    sec.items.filter(it => {
+      const cb = document.getElementById('cb-'+it.id);
+      return cb && cb.checked;
+    }).map(it => ({...it, section: sec.title}))
+  );
+
+  if (!checkedItems.length) { showError('Please check at least one item and attach its files.'); return; }
+
+  // Check total size
+  let totalSize = 0;
+  checkedItems.forEach(it => {
+    (itemFiles[it.id]||[]).forEach(f => totalSize += f.size);
   });
-
-  function addFiles(newFiles) {
-    const arr = Array.from(newFiles);
-    const existing = new Set(selectedFiles.map(f => f.name + f.size));
-    arr.forEach(f => { if (!existing.has(f.name + f.size)) selectedFiles.push(f); });
-    renderFileList();
+  if (totalSize > 38*1024*1024) {
+    showError('Total file size exceeds 38 MB. Please reduce files or split into multiple submissions.');
+    return;
   }
 
-  function removeFile(index) {
-    selectedFiles.splice(index, 1);
-    renderFileList();
-  }
+  submitBtn.disabled = true;
+  submitBtn.textContent = '⏳  Sending…';
 
-  function fileIcon(name) {
-    const ext = name.split('.').pop().toLowerCase();
-    if (ext === 'pdf') return '📄';
-    if (['doc','docx'].includes(ext)) return '📝';
-    if (['xls','xlsx','csv'].includes(ext)) return '📊';
-    if (['jpg','jpeg','png','gif'].includes(ext)) return '🖼';
-    if (['zip','rar'].includes(ext)) return '🗜';
-    return '📎';
-  }
+  try {
+    const fd = new FormData();
+    fd.append('name', name);
+    fd.append('email', email);
+    fd.append('message', message);
 
-  function fmtSize(b) {
-    return b < 1048576 ? `${(b/1024).toFixed(0)} KB` : `${(b/1048576).toFixed(1)} MB`;
-  }
+    const manifest = checkedItems.map(it => ({
+      id: it.id,
+      item: it.item,
+      section: it.section,
+      files: (itemFiles[it.id]||[]).map(f => f.name),
+    }));
+    fd.append('manifest', JSON.stringify(manifest));
 
-  function renderFileList() {
-    fileListEl.innerHTML = '';
-    if (!selectedFiles.length) return;
-    selectedFiles.forEach((f, i) => {
-      const row = document.createElement('div');
-      row.className = 'file-row';
-      row.innerHTML = `
-        <span class="file-icon">${fileIcon(f.name)}</span>
-        <div class="file-info">
-          <div class="file-name">${f.name}</div>
-          <div class="file-size">${fmtSize(f.size)}</div>
-        </div>
-        <button type="button" class="file-remove" onclick="removeFile(${i})">✕</button>
-      `;
-      fileListEl.appendChild(row);
+    checkedItems.forEach(it => {
+      (itemFiles[it.id]||[]).forEach(f => {
+        fd.append('file_'+it.id, f, f.name);
+      });
     });
-    const total = selectedFiles.reduce((s, f) => s + f.size, 0);
-    const summary = document.createElement('div');
-    summary.className = 'file-summary';
-    summary.textContent = `${selectedFiles.length} file${selectedFiles.length !== 1 ? 's' : ''} · ${fmtSize(total)} total`;
-    fileListEl.appendChild(summary);
-  }
 
-  function showError(msg) {
-    errorBox.textContent = msg;
-    errorBox.style.display = 'block';
-  }
+    const res = await fetch('/api/upload', { method:'POST', body:fd });
+    const json = await res.json();
+    if (!res.ok) throw new Error(json.error||'Upload failed');
 
-  function hideError() {
-    errorBox.style.display = 'none';
-  }
-
-  document.getElementById('upload-form').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    hideError();
-
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const message = document.getElementById('message').value.trim();
-
-    if (!selectedFiles.length) { showError('Please attach at least one file.'); return; }
-    const total = selectedFiles.reduce((s, f) => s + f.size, 0);
-    if (total > 38 * 1024 * 1024) { showError('Total file size exceeds 38 MB. Please reduce files or split into two submissions.'); return; }
-
-    submitBtn.disabled = true;
-    submitBtn.textContent = '⏳  Sending…';
-
-    try {
-      const fd = new FormData();
-      fd.append('name', name);
-      fd.append('email', email);
-      fd.append('message', message);
-      selectedFiles.forEach(f => fd.append('files', f));
-
-      const res = await fetch('/api/upload', { method: 'POST', body: fd });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Upload failed');
-
-      document.getElementById('form-view').style.display = 'none';
-      document.getElementById('success-view').style.display = 'block';
-      selectedFiles = [];
-      renderFileList();
-    } catch (err) {
-      showError(err.message);
-      submitBtn.disabled = false;
-      submitBtn.innerHTML = '📨&nbsp; Submit Documents to Marvian';
-    }
-  });
-
-  function resetForm() {
-    document.getElementById('form-view').style.display = 'block';
-    document.getElementById('success-view').style.display = 'none';
-    document.getElementById('upload-form').reset();
-    selectedFiles = [];
-    renderFileList();
-    hideError();
+    document.getElementById('form-view').style.display = 'none';
+    document.getElementById('success-view').style.display = 'block';
+  } catch(err) {
+    showError(err.message);
     submitBtn.disabled = false;
     submitBtn.innerHTML = '📨&nbsp; Submit Documents to Marvian';
   }
+});
+
+function showError(msg) {
+  const eb = document.getElementById('error-box');
+  eb.textContent = msg;
+  eb.style.display = 'block';
+}
+
+function resetForm() {
+  document.getElementById('form-view').style.display = 'block';
+  document.getElementById('success-view').style.display = 'none';
+  document.getElementById('inp-name').value = '';
+  document.getElementById('inp-email').value = '';
+  document.getElementById('inp-message').value = '';
+  // Uncheck all
+  SECTIONS.forEach(sec => sec.items.forEach(it => {
+    const cb = document.getElementById('cb-'+it.id);
+    if (cb) cb.checked = false;
+    const fz = document.getElementById('files-'+it.id);
+    if (fz) fz.classList.remove('open');
+    delete itemFiles[it.id];
+    renderItemFiles(it.id);
+  }));
+  updateProgress();
+  document.getElementById('submit-btn').disabled = false;
+  document.getElementById('submit-btn').innerHTML = '📨&nbsp; Submit Documents to Marvian';
+  document.getElementById('error-box').style.display = 'none';
+}
+
+buildUI();
+updateProgress();
 </script>
 </body>
 </html>
